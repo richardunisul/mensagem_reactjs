@@ -21,7 +21,10 @@ class FrmMensagem extends Component {
     event.preventDefault(); // Impede o recarregamento da página​
     //Recupera e atualiza a mensagem anterior antes de ​
     //enviar a nova mensagem​
-    fetch(`http://localhost:8000/mensagem`)
+    
+    //fetch(`http://localhost:8000/mensagem`)
+    
+    fetch(`https://mensagem-nodejs-g1klnji3u-richardunisul.vercel.app/mensagem`)
       .then((response) => response.json()) //Converte para JSON​
       .then((data) => { //Recupera a resposta​
           this.setState({mensagemAnterior : data.mensagem});
@@ -29,8 +32,9 @@ class FrmMensagem extends Component {
 
     const { mensagem } = this.state; // Recupera o valor da mensagem​
     // Envia a mensagem nova para o servidor​
-    fetch(`http://localhost:8000/mensagempath/${mensagem}`)
-      .then((response) => response.json()) //Converte para JSON​
+    //fetch(`http://localhost:8000/mensagempath/${mensagem}`)
+    fetch(`https://mensagem-nodejs-g1klnji3u-richardunisul.vercel.app/mensagempath/${mensagem}`)
+          .then((response) => response.json()) //Converte para JSON​
       .then((data) => { //Recupera a resposta​
           this.setState({resposta : data.mensagem}); 
       });
